@@ -4,11 +4,14 @@ const pipe = document.querySelector('.pipe');
 const start = document.querySelector('.start');
 const gameOver = document.querySelector('.game-over');
 const painelStart = document.querySelector(".painel_start");
+const pontos = document.querySelector(".pontuacao");
 
 audioStart = new Audio('./soung/musica_jogo.mpeg');
 audioGameOver = new Audio('./soung/backroom.mp3');
 audioJump = new Audio('./soung/jump.mp3');
 somPS2 = new Audio("./soung/PS2.mp3");
+
+let pontuacao = 0
 
 const startGame = () => {
   pipe.classList.add('pipe-animation');
@@ -18,6 +21,7 @@ const startGame = () => {
   // audio
   audioStart.play();
 }
+
 
 const restartGame = () => {
   gameOver.style.display = 'none';
@@ -50,11 +54,12 @@ const loop = () => {
     const pipePosition = pipe.offsetLeft;
     const marioPosition = window
       .getComputedStyle(mario)
-      .bottom.replace('px', ' '); 
+      .bottom.replace('px', ' ');
 
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
       pipe.classList.remove('.pipe-animation');
       pipe.style.left = `${pipePosition}px`;
+      pontuacao = 0;
 
       mario.classList.remove('.jump');
       mario.style.bottom = `${marioPosition}px`;
@@ -84,11 +89,17 @@ const loop = () => {
 
 loop();
 
+function adcionaPontuacao(ponto){
+  pontos.textContent = `Pontuação: ${ponto}`;
+}
+
 document.addEventListener('keypress', e => {
   const tecla = e.key;
   if (tecla === ' ') {
     jump();
     audioJump.play();
+    pontuacao++
+    adcionaPontuacao(pontuacao)
   }
 })
 
