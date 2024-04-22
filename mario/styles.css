@@ -16,6 +16,9 @@ body{
     position: relative;
     overflow: hidden;
     background: linear-gradient(#87CEEB, #E0F6FF);
+    background-image: url(img/cenario.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .painel_start{
@@ -108,7 +111,7 @@ button:hover {
     width: 100vw;
     height: 60px;
     background-repeat: repeat-x;
-    background-image: url(img/grama.jpg);
+    background-image: url(img/grama.jpeg);
     background-size: contain;
 }
 

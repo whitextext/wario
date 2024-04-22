@@ -5,7 +5,7 @@ const start = document.querySelector('.start');
 const gameOver = document.querySelector('.game-over');
 const painelStart = document.querySelector(".painel_start");
 
-audioStart = new Audio('./soung/audio_theme.mp3');
+audioStart = new Audio('./soung/musica_jogo.mpeg');
 audioGameOver = new Audio('./soung/backroom.mp3');
 audioJump = new Audio('./soung/jump.mp3');
 somPS2 = new Audio("./soung/PS2.mp3");
@@ -68,13 +68,12 @@ const loop = () => {
         audioStart.pause();
       }
       stopAudioStart();
-      
+
       audioGameOver.play();
       
       function stopAudio() {
         audioGameOver.pause();
       }
-      setTimeout(stopAudio, 16000);
       
       gameOver.style.display = 'flex';
       
